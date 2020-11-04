@@ -1,4 +1,4 @@
-module github.com/hierynomus/errors
+module github.com/hierynomus/gotils
 
 go 1.15
 
