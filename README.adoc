@@ -1,0 +1,30 @@
+= Gotils - Go Utility classes
+:source-highlighter: highlightjs
+
+== Contents
+This repository contains a number of commonly used utility classes.
+
+== gotils.ErrCollector
+The `gotils.ErrCollector` can collect multiple errors.
+
+Example:
+
+[code,go]
+----
+func process(files []string) error {
+    collector := &ErrCollector{}
+
+    for _, f := range files {
+        b, err := ioutil.ReadFile(f)
+        if err != nil {
+            collector.Collect(err)
+            continue
+        }
+        ... do something with the bytes
+    }
+
+    if collector.HasErrors() {
+        return collector
+    }
+}
+----
